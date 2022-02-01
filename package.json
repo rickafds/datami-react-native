@@ -1,6 +1,6 @@
 {
   "name": "react-native-smisdk-plugin",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Datami React native plugin",
   "private": true,
   "files": [
@@ -10,7 +10,7 @@
     "smisdk_integration.js",
     "index.js",
     "ios",
-    "react-native+0.65.1.patch",
+    "react-native+0.65.2.patch",
     "sd-react-native-smisdk-plugin.podspec",
     "postInstall.sh"
   ],

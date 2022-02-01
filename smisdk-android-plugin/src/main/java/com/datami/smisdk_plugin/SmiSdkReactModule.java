@@ -111,11 +111,12 @@ public class SmiSdkReactModule extends ReactContextBaseJavaModule {
         }
     }
 
+//    THIS METHOD IS NOT FOR REGISTERING THE LISTENER. IT WILL RETURN CURRENT SD STATE ON CALL FROM JS CONSTRUCTOR.
     @ReactMethod
     public void registerSdStateChangeListner(){
         // Get EventEmitter from context and send event to it
         Log.d(TAG, "registerSdStateChangeListner.");
-        if(mReactContext!=null){
+        if(mReactContext!=null && sSmiResult!=null){
             if (mReactContext.hasActiveCatalystInstance()){
                 mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                         .emit("onSdStateChange", getMappings());
@@ -137,4 +138,26 @@ public class SmiSdkReactModule extends ReactContextBaseJavaModule {
 
         return payload;
     }
+
+    @ReactMethod
+    public void startSponsoredData() {
+        Log.d(TAG, "startSponsoredData.");
+        try {
+            SmiSdk.startSponsoredData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @ReactMethod
+    public void stopSponsoredData() {
+        Log.d(TAG, "stopSponsoredData.");
+        try {
+            SmiSdk.stopSponsoredData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
